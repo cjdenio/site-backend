@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "projects",
   "info": {
-    "name": "project"
+    "name": "project",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -26,6 +27,10 @@
     },
     "description": {
       "type": "richtext"
+    },
+    "github_url": {
+      "type": "string",
+      "regex": "https://github.com\\/([^/]+)\\/([^/]+)/?"
     }
   }
 }
