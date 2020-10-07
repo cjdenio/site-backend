@@ -28,7 +28,7 @@
     "description": {
       "type": "richtext"
     },
-    "github_url": {
+    "githubUrl": {
       "type": "string",
       "regex": "https://github.com\\/([^/]+)\\/([^/]+)/?"
     }
