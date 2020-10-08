@@ -31,6 +31,14 @@
     "githubUrl": {
       "type": "string",
       "regex": "https://github.com\\/([^/]+)\\/([^/]+)/?"
+    },
+    "language": {
+      "via": "projects",
+      "model": "language"
+    },
+    "tags": {
+      "via": "projects",
+      "collection": "tag"
     }
   }
 }
