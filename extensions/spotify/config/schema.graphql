@@ -48,7 +48,11 @@ module.exports = {
           resp = await spotifyApi.getMyCurrentPlaybackState();
         }
 
-        console.log(resp.body.item);
+        if ( resp.statusCode != 200 ) {
+          return {
+            currentSong: null
+          };
+        }
 
         const item = resp.body.item;
 
