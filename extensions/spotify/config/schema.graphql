@@ -56,6 +56,12 @@ module.exports = {
 
         const item = resp.body.item;
 
+        if ( !item ) {
+          return {
+            currentSong: null,
+          };
+        }
+
         return {
           currentSong: {
             name: item.name,
