@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_form_entries",
+  "info": {
+    "name": "Contact Form Entries"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Message": {
+      "type": "richtext",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    }
+  }
+}
