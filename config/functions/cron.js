@@ -1,5 +1,8 @@
 "use strict";
 
+const SpotifyWebApi = require("spotify-web-api-node");
+const { default: createStrapi } = require("strapi");
+
 /**
  * Cron config that gives you an opportunity
  * to run scheduled jobs.
@@ -11,11 +14,15 @@
  */
 
 module.exports = {
-  /**
-   * Simple example.
-   * Every monday at 1am.
-   */
-  // '0 1 * * 1': () => {
-  //
-  // }
+  "* * * * *": async () => {
+    const spotifyData = await strapi.config.functions.spotify();
+
+    strapi.services.redis.set(
+      "spotify:currentSong",
+      JSON.stringify(spotifyData),
+      () => {
+        strapi.log.info("Successfully cached Spotify data");
+      }
+    );
+  },
 };
