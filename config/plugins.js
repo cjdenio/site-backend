@@ -8,7 +8,7 @@ if (process.env.NODE_ENV == "production") {
         bucket: env("MINIO_BUCKET"),
         endPoint: env("MINIO_ENDPOINT"),
         port: 80,
-        useSSL: false,
+        useSSL: true,
         isDocker: true,
         folder: "assets",
         host: env("MINIO_ENDPOINT"),
