@@ -2,12 +2,13 @@
   "kind": "collectionType",
   "collectionName": "authors",
   "info": {
-    "name": "Author"
+    "name": "Author",
+    "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "name": {
@@ -20,7 +21,9 @@
     "avatar": {
       "model": "file",
       "via": "related",
-      "allowedTypes": ["images"],
+      "allowedTypes": [
+        "images"
+      ],
       "plugin": "upload",
       "required": false
     }
