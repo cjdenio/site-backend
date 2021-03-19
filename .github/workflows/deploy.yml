@@ -5,3 +5,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: docker build -t ghcr.io/cjdenio/site-backend -f prod.Dockerfile .
+      - run: docker push ghcr.io/cjdenio/site-backend
