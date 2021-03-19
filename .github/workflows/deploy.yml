@@ -13,3 +13,5 @@ jobs:
         name: Build image
       - run: docker push ghcr.io/cjdenio/site-backend
         name: Push image
+      - run: docker run caprover/cli-caprover:v2.1.1 caprover deploy --caproverUrl https://host.calebdenio.me --caproverPassword ${{ secrets.CAPROVER_PASSWORD }} --caproverApp site-backend --imageName ghcr.io/cjdenio/site-backend
+        name: Deploy to CapRover
