@@ -1,0 +1,20 @@
+on:
+  push:
+    branches:
+      - master
+name: Deploy
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout repository
+      - run: echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u cjdenio --password-stdin
+        name: Login to Docker
+      - run: docker build -t ghcr.io/cjdenio/site-backend -f prod.Dockerfile .
+        name: Build image
+      - run: docker push ghcr.io/cjdenio/site-backend
+        name: Push image
+      - run: docker run caprover/cli-caprover:v2.1.1 caprover deploy --caproverUrl https://host.calebdenio.me --caproverPassword ${{ secrets.CAPROVER_PASSWORD }} --caproverApp site-backend --imageName ghcr.io/cjdenio/site-backend
+        name: Deploy to CapRover
